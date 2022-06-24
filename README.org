@@ -1,0 +1,6 @@
+#+title: Getting Started with pyBot
+
+* Getting Started
+
+1. Create a file named =.env=
+2. Make a line that contains =TOKEN = "token"=
