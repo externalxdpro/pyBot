@@ -2,6 +2,7 @@
 
 1. Create a file named ~.env~
 2. Make a line that contains
-   #+begin_src env
+   #+begin_src bash
    TOKEN = "token"
+   GUILDID = guildId
    #+end_src
