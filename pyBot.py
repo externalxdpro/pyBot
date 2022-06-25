@@ -27,4 +27,8 @@ async def on_ready():
 async def hello(inter):
     await inter.response.send_message('Hello!')
 
+@client.slash_command()
+async def ping(inter):
+    await inter.response.send_message('Ping!\nPing: {0}'.format(round(client.latency, 2)))
+
 client.run(token)
