@@ -1,8 +1,17 @@
 #+title: Getting Started with pyBot
 
-1. Create a file named ~.env~
-2. Make a line that contains
+1. Create a file named ~.env~ and add these lines
    #+begin_src bash
    TOKEN = "token"
    GUILDID = guildId
+   #+end_src
+
+2. Install the required packages
+   #+begin_src shell
+   pip install disnake python-dotenv
+   #+end_src
+
+3. Start the bot with
+   #+begin_src shell
+   python pyBot.py
    #+end_src
