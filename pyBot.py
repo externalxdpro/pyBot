@@ -19,16 +19,21 @@ logger.setLevel(logging.INFO)
 intents = disnake.Intents.all()
 client = commands.InteractionBot(test_guilds=[int(guildId)], intents=intents)
 
+
 @client.event
 async def on_ready():
     print(f'Logged in as {client.user}!')
 
+
 @client.slash_command()
 async def hello(inter):
-    await inter.response.send_message('Hello!')
+    """Says hello."""
+    await inter.response.send_message('ello mate')
+
 
 @client.slash_command()
 async def ping(inter):
+    """Output the bot's ping."""
     await inter.response.send_message('Ping!\nPing: {0}'.format(round(client.latency, 2)))
 
 client.run(token)
