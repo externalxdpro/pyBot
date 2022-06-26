@@ -39,4 +39,35 @@ async def ping(inter):
     """Output the bot's ping."""
     await inter.response.send_message('Ping!\nPing: {0}'.format(round(client.latency, 2)))
 
+
+@client.slash_command()
+async def whois(inter, user: disnake.User = None):
+    """
+    Output user info of a user.
+
+    Parameters
+    ----------
+    user: The user to get info about
+    """
+    if user == None:
+        user = inter.user
+
+    title = 'Whois'
+    desc = f'User info for {user}'
+    colour = user.colour
+    serverName = str(inter.guild.name)
+    avatar = user.display_avatar.url
+    createdAt = user.created_at
+
+    embed = disnake.Embed(title=title, description=desc)
+    embed.set_default_colour(colour)
+    embed.set_footer(text=serverName)
+    embed.set_thumbnail(url=avatar)
+    embed.add_field(name='Full Username:', value=user)
+    embed.add_field(name='ID:', value=user.id)
+    embed.add_field(name='Account Creation Date:', value=createdAt, inline=False)
+    embed.add_field(name='Bot:', value=user.bot)
+    embed.set_author(name=inter.user)
+    await inter.response.send_message(embed=embed)
+
 client.run(token)
