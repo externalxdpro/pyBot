@@ -1,2 +1,3 @@
 .env
 pyBot.log
+commands/__pycache__
