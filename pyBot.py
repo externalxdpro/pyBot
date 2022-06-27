@@ -97,6 +97,7 @@ async def whois(inter, user: disnake.User = None):
     serverName = str(inter.guild.name)
     avatar = user.display_avatar.url
     createdAt = user.created_at
+    joinedAt = user.joined_at
 
     embed = disnake.Embed(title=title, description=desc)
     embed.set_default_colour(colour)
@@ -105,6 +106,7 @@ async def whois(inter, user: disnake.User = None):
     embed.add_field(name='Full Username:', value=user)
     embed.add_field(name='ID:', value=user.id)
     embed.add_field(name='Account Creation Date:', value=createdAt, inline=False)
+    embed.add_field(name='Joined Server Date:', value=joinedAt)
     embed.add_field(name='Bot:', value=user.bot)
     embed.set_author(name=inter.user)
     await inter.response.send_message(embed=embed)
