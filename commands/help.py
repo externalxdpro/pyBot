@@ -17,5 +17,6 @@ class Help(commands.Cog):
             embed.add_field(name=command.name, value=description)
         await inter.response.send_message(embed=embed)
 
+
 def setup(bot):
     bot.add_cog(Help(bot))
