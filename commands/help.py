@@ -12,7 +12,7 @@ class Help(commands.Cog):
         embed = disnake.Embed(title='Help', description=f'Help info for {self.client.user.name}')
         for command in self.client.slash_commands:
             description = command.description
-            if not description or description == None or description == '-':
+            if description == '-':
                 description = 'No description'
             embed.add_field(name=command.name, value=description)
         await inter.response.send_message(embed=embed)
