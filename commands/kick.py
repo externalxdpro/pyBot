@@ -22,6 +22,11 @@ class Kick(commands.Cog):
             reason = 'No reason specified'
         await inter.guild.kick(user=user, reason=reason)
         await inter.response.send_message(f'User {user.mention} has been kicked for {reason}')
+        try:
+            await user.dm_channel.send(f'You have been kicked from {inter.guild.name} for {reason}')
+        except AttributeError:
+            await user.create_dm()
+            await user.dm_channel.send(f'You have been kicked from {inter.guild.name} for {reason}')
 
 
 def setup(bot):
